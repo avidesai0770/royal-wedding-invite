@@ -6,7 +6,7 @@ const SiteFooter: React.FC = () => (
     <div className="footer-inner">
       <div className="footer-ganesha-small">ॐ</div>
       <h3 className="footer-names">{COUPLE.groomFirst} &amp; {COUPLE.brideFirst}</h3>
-      <p className="footer-date">12 – 14 December 2026 · Udaipur, Rajasthan</p>
+      <p className="footer-date">12 – 14 December 2026 · Surat, Gujarat</p>
       <p className="footer-hashtag">{COUPLE.hashtag}</p>
       <div className="footer-divider" />
       <p className="footer-note">

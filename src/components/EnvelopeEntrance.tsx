@@ -101,7 +101,7 @@ const EnvelopeEntrance: React.FC<Props> = ({ onOpen, guest }) => {
 
               <p className="env-letter-label">You are cordially invited to</p>
               <p className="env-letter-names">Avi & Nupur</p>
-              <p className="env-letter-sub">12 – 14 December 2026 · Udaipur</p>
+              <p className="env-letter-sub">12 – 14 December 2026 · Surat</p>
 
               {/* Invited Ceremonies Mini-List */}
               <div className="env-letter-events-row">
