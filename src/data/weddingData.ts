@@ -22,14 +22,13 @@ export const WEDDING_EVENTS: WeddingEvent[] = [
     venue: 'Society Common Plot ',
     address: 'Ravisankar Sankul Society Rd, Bhatar Char Rasta, Surat, Gujarat 395017',
     mapUrl: 'https://maps.app.goo.gl/iseK96qKDJRyg9N2A',
-    description: 'An enchanting musical evening illuminated by starlight and fairy lights. Twirl to the rhythmic beats of traditional Garba, authentic dhol, and vibrant family dance performances.',
+    description: 'An enchanting musical evening. Twirl to the rhythmic beats of traditional Garba, authentic dhol, and vibrant family dance performances.',
     dressCode: 'Royal Festive & Vibrant Chaniya Cholis / Sherwanis',
     emoji: '🪔',
     color: '#D4A017',
     timeline: [
-      { time: '04:00 PM', title: 'Geet Sangeet', description: 'will be singing lagna songs' },
-      { time: '07:00 PM', title: 'Aaradhna & Dandiya Raas', description: 'Traditional Aarti followed by vibrant Garba circles' },
-
+{ time: '04:00 PM', title: 'Geet Sangeet', description: 'Traditional lagna geet sung by the ladies of the family, filling the evening with blessings, laughter, and folk melodies' },
+{ time: '07:00 PM', title: 'Sangeet Night', description: 'An evening of dance performances by family and friends, followed by a DJ and a dance floor open to everyone' },
     ],
   },
   {

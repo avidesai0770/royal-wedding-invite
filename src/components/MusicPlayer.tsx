@@ -8,7 +8,7 @@ interface MusicPlayerProps {
 // YouTube video ID for "Tune Kaha" - Prateek Kuhad (Official)
 const YOUTUBE_VIDEO_ID = 'GqagMyq2hGQ';
 // Skip starting 7 seconds (jumps straight into the guitar melody & vocals)
-const START_SECONDS = 7;
+const START_SECONDS = 10;
 
 const MusicPlayer: React.FC<MusicPlayerProps> = ({ autoStart = false }) => {
   const [isPlaying, setIsPlaying] = useState(false);
