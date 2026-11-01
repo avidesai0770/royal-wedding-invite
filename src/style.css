@@ -1,0 +1,1977 @@
+/* ========================================
+   WEDDING INVITATION — Sage Green & Linen
+   Aarav & Ananya | 12 – 14 December 2026
+   ======================================== */
+
+:root {
+  --sage: #6B7F67;
+  --sage-dark: #3F4F3D;
+  --sage-light: #EEF2EC;
+  --sage-mid: #8A9E86;
+  --sage-border: rgba(107, 127, 103, 0.25);
+  --gold: #C5A059;
+  --gold-dark: #9E7D38;
+  --gold-light: #E8D5A3;
+  --gold-faint: rgba(197, 160, 89, 0.12);
+  --linen: #FAF8F5;
+  --linen-card: #FFFFFF;
+  --cream: #F5F0E8;
+  --text: #2D372E;
+  --text-muted: #647065;
+  --white: #FFFFFF;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --shadow-sm: 0 4px 18px rgba(63, 79, 61, 0.08);
+  --shadow-md: 0 10px 32px rgba(63, 79, 61, 0.12);
+  --shadow-lg: 0 20px 50px rgba(45, 55, 46, 0.18);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  background-color: var(--linen);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.75;
+}
+
+a { cursor: pointer; text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+img { max-width: 100%; }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 7px; }
+::-webkit-scrollbar-track { background: var(--linen); }
+::-webkit-scrollbar-thumb { background: var(--sage-mid); border-radius: 4px; }
+
+/* ==========================================
+   BUTTONS
+   ========================================== */
+.btn-sage {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--sage);
+  color: var(--white) !important;
+  padding: 0.75rem 1.8rem;
+  border-radius: 30px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(107, 127, 103, 0.3);
+}
+.btn-sage:hover {
+  background: var(--sage-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(63, 79, 61, 0.35);
+}
+.btn-sage.btn-sm {
+  padding: 0.5rem 1.15rem;
+  font-size: 0.78rem;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--sage-dark);
+  padding: 0.72rem 1.7rem;
+  border-radius: 30px;
+  border: 1.5px solid var(--sage);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+}
+.btn-outline:hover {
+  background: var(--sage);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   ENVELOPE ENTRANCE SCREEN
+   ========================================== */
+.envelope-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #2D3A2C 0%, #465743 45%, #5E7259 80%, #3B4B38 100%);
+  cursor: pointer;
+  overflow: hidden;
+  transition: opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1), transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.envelope-screen.fade-out {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.02);
+}
+
+.envelope-scene {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  position: relative;
+}
+
+/* Floating background petals on entrance */
+.env-petal {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  border-radius: 60% 0 60% 0;
+  background: rgba(255, 255, 255, 0.3);
+  animation: petalFloat linear infinite;
+  top: -20px;
+  pointer-events: none;
+}
+@keyframes petalFloat {
+  0% { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0; }
+  15% { opacity: 0.8; }
+  85% { opacity: 0.6; }
+  100% { transform: translateY(115vh) rotate(540deg) translateX(50px); opacity: 0; }
+}
+
+.envelope-guest-banner {
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--sage-dark);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.9rem;
+  padding: 0.5rem 1.4rem;
+  border-radius: 30px;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--gold);
+}
+.banner-knot { color: var(--gold); }
+
+.envelope-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  perspective: 900px;
+}
+
+.envelope-body {
+  position: relative;
+  width: min(520px, 92vw);
+  height: min(330px, 58vw);
+  background: linear-gradient(160deg, #576B53, #3B4A37);
+  border-radius: 8px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+  overflow: visible;
+  transition: transform 0.5s ease;
+}
+.envelope-wrap.opening .envelope-body {
+  transform: translateY(10px);
+}
+
+.env-side-left, .env-side-right {
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+}
+.env-side-left {
+  left: 0;
+  border-bottom: min(165px, 29vw) solid #475844;
+  border-right: min(260px, 46vw) solid transparent;
+}
+.env-side-right {
+  right: 0;
+  border-bottom: min(165px, 29vw) solid #475844;
+  border-left: min(260px, 46vw) solid transparent;
+}
+.env-bottom {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: min(165px, 29vw);
+  background: #475844;
+  clip-path: polygon(0 100%, 50% 0%, 100% 100%);
+}
+
+.env-flap {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: min(165px, 29vw);
+  background: linear-gradient(170deg, #5E7259, #475844);
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  transform-origin: top center;
+  transition: transform 0.95s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 5;
+}
+.env-flap.open {
+  transform: rotateX(-175deg);
+}
+.env-flap-inner {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.12), transparent);
+}
+
+.wax-seal {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px; height: 72px;
+  background: radial-gradient(circle at 35% 35%, #E2BE6A, #9E782E);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45), inset 0 0 0 2px rgba(255, 255, 255, 0.3);
+  z-index: 10;
+  transition: opacity 0.4s, transform 0.4s;
+}
+.wax-seal.fade-out {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.7);
+}
+
+.env-letter {
+  position: absolute;
+  left: 8%; right: 8%;
+  bottom: 8px;
+  height: 86%;
+  background: var(--linen);
+  border-radius: 6px 6px 2px 2px;
+  box-shadow: 0 -6px 25px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(0);
+  transition: transform 1.15s cubic-bezier(0.22, 1, 0.36, 1) 0.5s;
+  z-index: 2;
+  border: 1px solid var(--gold-light);
+}
+.env-letter.rise {
+  transform: translateY(-106%);
+}
+.env-letter-content {
+  text-align: center;
+  padding: 1.25rem 1rem;
+}
+.env-letter-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 0.2rem;
+}
+.env-letter-names {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  color: var(--sage-dark);
+  line-height: 1.1;
+}
+.env-letter-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-top: 0.2rem;
+}
+.env-letter-events-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+}
+.env-letter-tag {
+  background: var(--sage-light);
+  color: var(--sage-dark);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 12px;
+  border: 1px solid rgba(107, 127, 103, 0.2);
+}
+.env-letter-guest {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--sage-dark);
+  margin-top: 0.6rem;
+  padding: 0.25rem 0.8rem;
+  background: var(--cream);
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.env-prompt {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.84rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  animation: promptPulse 1.8s ease-in-out infinite;
+  transition: opacity 0.3s;
+}
+.env-prompt.hide { opacity: 0; }
+.env-prompt-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+@keyframes promptPulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+
+.env-title-below {
+  text-align: center;
+  margin-top: 1rem;
+}
+.env-music-indicator {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--gold);
+  color: var(--gold-light);
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  margin-bottom: 0.7rem;
+}
+.env-save-date {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.env-city {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.2rem;
+  color: var(--gold-light);
+}
+
+/* ==========================================
+   SITE WRAPPER
+   ========================================== */
+.site-wrapper {
+  min-height: 100vh;
+  opacity: 1;
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================
+   STICKY NAV
+   ========================================== */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250, 248, 245, 0.94);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(107, 127, 103, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 2.5rem;
+}
+.nav-brand {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.65rem;
+  color: var(--sage-dark);
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.nav-link {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 0.45rem 0.85rem;
+  border-radius: 6px;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+.nav-link:hover {
+  color: var(--sage-dark);
+  background: var(--sage-light);
+}
+.nav-generator-pill-btn {
+  background: var(--sage-light);
+  color: var(--sage-dark);
+  border: 1px solid var(--sage-mid);
+  padding: 0.45rem 1rem;
+  border-radius: 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  margin-left: 0.5rem;
+}
+.nav-generator-pill-btn:hover {
+  background: var(--sage);
+  color: white;
+  border-color: var(--sage);
+}
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  padding: 6px;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--sage-dark);
+  border-radius: 2px;
+}
+.nav-mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0; right: 0;
+  background: var(--linen);
+  border-bottom: 1px solid var(--sage-border);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-md);
+}
+.nav-mobile-link {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.92rem;
+  color: var(--text);
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--sage-light);
+}
+.nav-mobile-link.highlight-link {
+  background: var(--sage-light);
+  color: var(--sage-dark);
+  font-weight: 600;
+}
+
+/* ==========================================
+   FLOATING MUSIC CONTROLLER
+   ========================================== */
+.floating-music-widget {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 150;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.65rem;
+}
+
+.music-pill-bubble {
+  background: rgba(45, 55, 46, 0.94);
+  color: var(--gold-light);
+  padding: 0.5rem 1.1rem;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--gold);
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+  backdrop-filter: blur(8px);
+}
+.music-pill-bubble:hover {
+  transform: translateY(-2px);
+  background: rgba(35, 45, 36, 0.98);
+}
+.disc-icon { font-size: 1.15rem; }
+.pill-text-col {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.pill-song-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.2;
+}
+.pill-artist-sub {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.68rem;
+  color: var(--gold-light);
+  line-height: 1.2;
+  margin-top: 1px;
+}
+
+.music-options-menu {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  width: 300px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--gold-light);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  animation: bounceIn 0.35s ease;
+}
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--sage-light);
+  font-family: 'Playfair Display', serif;
+  font-size: 0.9rem;
+  color: var(--sage-dark);
+}
+.menu-close-btn {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.menu-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+.menu-opt-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 8px;
+  background: var(--linen);
+  border: 1px solid var(--sage-border);
+  text-align: left;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.menu-opt-btn:hover, .menu-opt-btn.active {
+  background: var(--sage-light);
+  border-color: var(--sage);
+}
+.opt-emoji { font-size: 1.2rem; flex-shrink: 0; }
+.opt-text { flex: 1; }
+.opt-text strong {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.76rem;
+  color: var(--sage-dark);
+  display: block;
+}
+.opt-text small {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  display: block;
+  line-height: 1.3;
+}
+.opt-check {
+  color: var(--sage);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.music-control-button {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--sage);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(63, 79, 61, 0.35);
+  transition: transform 0.25s, background 0.25s;
+  border: 2px solid var(--gold);
+}
+.music-control-button:hover {
+  background: var(--sage-dark);
+  transform: scale(1.08);
+}
+.audio-wave-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 18px;
+}
+.wave-bar {
+  display: block;
+  width: 3px;
+  border-radius: 2px;
+  background: white;
+  animation: waveDance 0.7s ease-in-out infinite alternate;
+}
+.bar-1 { height: 10px; animation-delay: 0s; }
+.bar-2 { height: 18px; animation-delay: 0.15s; }
+.bar-3 { height: 8px; animation-delay: 0.3s; }
+.bar-4 { height: 14px; animation-delay: 0.2s; }
+@keyframes waveDance {
+  from { transform: scaleY(0.3); }
+  to { transform: scaleY(1); }
+}
+.audio-play-icon { font-size: 1.1rem; margin-left: 2px; }
+
+/* ==========================================
+   PETALS CANVAS
+   ========================================== */
+.petals-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  overflow: hidden;
+}
+.floating-petal {
+  position: absolute;
+  top: -20px;
+  border-radius: 60% 0 60% 0;
+  background: linear-gradient(135deg, #E2B755, #9E7D38);
+  animation: petalFall linear forwards;
+}
+@keyframes petalFall {
+  0% { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0; }
+  10% { opacity: 0.7; }
+  90% { opacity: 0.5; }
+  100% { transform: translateY(115vh) rotate(540deg) translateX(70px); opacity: 0; }
+}
+
+/* ==========================================
+   HERO INVITATION SECTION
+   ========================================== */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(160deg, #EDF2EB 0%, #FAF8F5 50%, #F3EFE7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 6rem 1.5rem 4rem;
+}
+.hero-arch-card {
+  position: relative;
+  z-index: 5;
+  background: var(--white);
+  max-width: 520px;
+  width: 100%;
+  border-radius: 260px 260px 24px 24px;
+  padding: 4rem 2.5rem 3rem;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(107, 127, 103, 0.16);
+}
+.hero-ganesha { margin-bottom: 0.5rem; }
+.hero-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+.hero-groom, .hero-bride {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(3rem, 9vw, 4.4rem);
+  color: var(--sage-dark);
+  line-height: 1.05;
+}
+.hero-ampersand {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.2rem;
+  color: var(--gold);
+  line-height: 1;
+  margin: -0.3rem 0;
+}
+.hero-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+}
+.hero-divider-line {
+  flex: 1;
+  max-width: 80px;
+  height: 1px;
+  background: var(--gold-light);
+}
+.hero-divider-dot {
+  color: var(--gold);
+  font-size: 0.85rem;
+}
+.hero-date {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: var(--sage);
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+.hero-venue {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 0.35rem;
+}
+.hero-guest-badge {
+  background: var(--sage-light);
+  border-left: 3px solid var(--gold);
+  border-radius: 8px;
+  padding: 0.9rem 1.1rem;
+  margin: 1.5rem 0 1rem;
+  text-align: left;
+  box-shadow: var(--shadow-sm);
+}
+.guest-badge-greeting {
+  font-size: 0.9rem;
+  color: var(--sage-dark);
+  display: block;
+}
+.hero-guest-events {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.6rem;
+}
+.hero-guest-tag {
+  background: var(--sage);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.hero-cta-row {
+  display: flex;
+  gap: 0.85rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.75rem;
+}
+
+.hero-floral-left, .hero-floral-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.hero-floral-left { left: 0; }
+.hero-floral-right { right: 0; }
+
+/* ==========================================
+   COUNTDOWN TIMER
+   ========================================== */
+.section-sage-light {
+  background: var(--sage-light);
+  padding: 5rem 1.5rem;
+}
+.section-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.text-center { text-align: center; }
+
+.section-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 0.5rem;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  color: var(--sage-dark);
+  line-height: 1.2;
+}
+.section-rule {
+  width: 70px;
+  height: 2px;
+  background: var(--gold);
+  margin: 1.2rem auto;
+  border-radius: 2px;
+}
+.countdown-row {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin: 2.2rem 0 1rem;
+}
+.countdown-unit { text-align: center; }
+.countdown-num {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 8vw, 4.2rem);
+  color: var(--sage-dark);
+  line-height: 1;
+  font-weight: 700;
+  min-width: 95px;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 0.6rem 1rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--sage-border);
+}
+.countdown-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+.countdown-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+/* ==========================================
+   REDESIGNED LUXURY "MARK YOUR CALENDAR" SECTION
+   ========================================== */
+.section-calendar {
+  background: var(--white);
+  padding: 6rem 1.5rem;
+  position: relative;
+}
+.calendar-header-block {
+  margin-bottom: 3.5rem;
+}
+.calendar-shubh-badge {
+  display: inline-block;
+  background: var(--gold-faint);
+  color: var(--gold-dark);
+  padding: 0.35rem 1.2rem;
+  border-radius: 30px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.15em;
+  border: 1px solid var(--gold-light);
+  margin-bottom: 0.75rem;
+}
+.calendar-eyebrow {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 0.4rem;
+}
+.calendar-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  color: var(--sage-dark);
+  font-weight: 700;
+}
+.calendar-gold-motif {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+.motif-line {
+  width: 80px;
+  height: 1px;
+  background: var(--gold);
+}
+.motif-symbol {
+  color: var(--gold);
+  font-size: 1rem;
+}
+
+.calendar-guest-notice {
+  margin-top: 1.5rem;
+}
+.guest-notice-pill {
+  display: inline-block;
+  background: var(--sage-light);
+  color: var(--sage-dark);
+  padding: 0.5rem 1.25rem;
+  border-radius: 30px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--sage-border);
+}
+.guest-notice-sub {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.view-all-toggle-btn {
+  color: var(--sage);
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.view-all-toggle-btn:hover { color: var(--sage-dark); }
+
+/* Ceremonies Grid */
+.calendar-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.25rem;
+}
+
+/* Individual Royal Ceremony Card */
+.royal-ceremony-card {
+  background: var(--linen);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(107, 127, 103, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.royal-ceremony-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+.royal-ceremony-card.is-invited {
+  border: 1.5px solid var(--gold);
+}
+
+/* Ornate Arch Top */
+.royal-card-arch-top {
+  position: relative;
+  height: 90px;
+  background: linear-gradient(135deg, #3F4F3D, #2D3A2C);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  overflow: hidden;
+}
+.arch-svg-shape {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
+  pointer-events: none;
+}
+.arch-header-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ceremony-index-pill {
+  background: rgba(255, 255, 255, 0.18);
+  color: var(--gold-light);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  border: 1px solid rgba(197, 160, 89, 0.3);
+}
+.ceremony-top-emoji {
+  font-size: 2rem;
+}
+
+/* Card Body */
+.royal-card-inner {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Date Medallion */
+.date-medallion-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--white);
+  padding: 0.8rem 1.1rem;
+  border-radius: var(--radius-md);
+  margin-top: -3.5rem;
+  position: relative;
+  z-index: 3;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gold-light);
+}
+.medallion-circle {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+.medallion-day {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--sage);
+  letter-spacing: 0.08em;
+}
+.medallion-date-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--sage-dark);
+  line-height: 1;
+}
+.medallion-month {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+.medallion-time-badge {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--sage-dark);
+  background: var(--sage-light);
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+}
+
+/* Titles */
+.ceremony-titles-box {
+  margin: 1.25rem 0 0.85rem;
+}
+.ceremony-main-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.45rem;
+  color: var(--sage-dark);
+  font-weight: 700;
+}
+.ceremony-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: var(--gold-dark);
+  font-style: italic;
+  margin-top: 0.15rem;
+}
+
+/* Venue */
+.ceremony-venue-box {
+  display: flex;
+  gap: 0.75rem;
+  background: var(--white);
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--sage);
+  margin-bottom: 0.85rem;
+}
+.ceremony-venue-box.ceremony-venue-link {
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  display: flex;
+}
+.ceremony-venue-box.ceremony-venue-link:hover {
+  background: var(--sage-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(107, 127, 103, 0.16);
+}
+.venue-map-hint {
+  display: inline-block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--sage);
+  margin-top: 0.25rem;
+}
+.venue-pin-icon { font-size: 1.2rem; flex-shrink: 0; }
+.venue-text-group { flex: 1; }
+.venue-name-highlight {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.88rem;
+  color: var(--sage-dark);
+  display: block;
+}
+.venue-address-text {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-top: 0.15rem;
+}
+
+/* Description */
+.ceremony-description-paragraph {
+  font-size: 0.96rem;
+  color: var(--text);
+  line-height: 1.65;
+  margin-bottom: 1rem;
+  font-style: normal;
+}
+
+/* Attire Badge */
+.ceremony-attire-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--sage-light);
+  padding: 0.6rem 0.9rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1.25rem;
+}
+.attire-icon { font-size: 1.15rem; flex-shrink: 0; }
+.attire-info { font-size: 0.82rem; }
+.attire-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  color: var(--sage-dark);
+  margin-right: 0.35rem;
+}
+.attire-text { color: var(--text-muted); }
+
+/* Timeline Ribbon */
+.ceremony-timeline-section {
+  margin-bottom: 1.25rem;
+}
+.ceremony-timeline-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.55rem 0.9rem;
+  background: var(--white);
+  border: 1px dashed var(--sage-mid);
+  border-radius: var(--radius-sm);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--sage-dark);
+  transition: background 0.2s;
+}
+.ceremony-timeline-toggle:hover {
+  background: var(--sage-light);
+}
+.timeline-counter {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.ceremony-timeline-ribbon {
+  margin-top: 0.85rem;
+  padding: 0.75rem 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.timeline-step-row {
+  display: flex;
+  gap: 0.85rem;
+}
+.step-time-pillar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 78px;
+  flex-shrink: 0;
+}
+.step-time-badge {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--sage-dark);
+  background: var(--gold-faint);
+  border: 1px solid var(--gold);
+  padding: 0.2rem 0.45rem;
+  border-radius: 12px;
+  text-align: center;
+  white-space: nowrap;
+}
+.step-connecting-line {
+  flex: 1;
+  width: 2px;
+  background: var(--gold-light);
+  margin-top: 4px;
+}
+.step-details-card { flex: 1; }
+.step-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.92rem;
+  color: var(--sage-dark);
+  display: block;
+}
+.step-subtext {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-top: 0.15rem;
+}
+
+/* Card Action Buttons */
+.ceremony-actions-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+.btn-ceremony-map, .btn-ceremony-calendar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 0.8rem;
+  border-radius: 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  text-align: center;
+}
+.btn-ceremony-map {
+  background: var(--sage);
+  color: white !important;
+}
+.btn-ceremony-map:hover { background: var(--sage-dark); }
+.btn-ceremony-calendar {
+  background: var(--white);
+  color: var(--sage-dark);
+  border: 1.5px solid var(--sage);
+}
+.btn-ceremony-calendar:hover {
+  background: var(--sage-light);
+}
+
+.ceremony-guest-status-strip {
+  background: linear-gradient(90deg, #E8D5A3, #FAF8F5, #E8D5A3);
+  color: var(--sage-dark);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 0.35rem 0.5rem;
+  border-radius: 4px;
+  margin-top: 0.85rem;
+  border: 1px solid var(--gold-light);
+}
+
+.calendar-footer-quote {
+  text-align: center;
+  margin-top: 4.5rem;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.5rem;
+  background: var(--linen);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--gold-light);
+}
+.quote-mantra {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  color: var(--gold-dark);
+  font-weight: 600;
+  line-height: 1.6;
+}
+.quote-translation {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 0.4rem;
+}
+
+/* ==========================================
+   OUR STORY
+   ========================================== */
+.section-white { background: var(--white); padding: 5.5rem 1.5rem; }
+.story-timeline { display: flex; flex-direction: column; gap: 3.5rem; }
+.story-step {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.story-step-right { direction: rtl; }
+.story-step-right > * { direction: ltr; }
+
+.story-year {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 700;
+}
+.story-step-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--sage-dark);
+  margin-bottom: 0.6rem;
+}
+.story-step-desc {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+/* Polaroid Card */
+.polaroid {
+  background: var(--white);
+  padding: 0.85rem 0.85rem 3rem;
+  box-shadow: var(--shadow-md);
+  transform: rotate(-2deg);
+  transition: transform 0.3s;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+.polaroid:hover { transform: rotate(0deg) scale(1.02); }
+.story-step-right .polaroid { transform: rotate(2deg); }
+.story-step-right .polaroid:hover { transform: rotate(0deg) scale(1.02); }
+.polaroid-photo {
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: 2px;
+}
+.polaroid-caption {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 0.6rem;
+  font-style: italic;
+}
+
+/* ==========================================
+   WISHES WALL
+   ========================================== */
+.wish-form {
+  max-width: 580px;
+  margin: 0 auto 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.wish-input, .wish-textarea {
+  border: 1.5px solid var(--sage-border);
+  border-radius: 8px;
+  padding: 0.8rem 1.1rem;
+  background: var(--white);
+  color: var(--text);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  transition: border-color 0.2s;
+}
+.wish-input:focus, .wish-textarea:focus {
+  outline: none;
+  border-color: var(--sage);
+}
+.wishes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.wish-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid var(--gold);
+}
+.wish-message {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.08rem;
+  color: var(--text);
+  line-height: 1.65;
+  font-style: italic;
+  margin-bottom: 0.75rem;
+}
+.wish-author {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  color: var(--sage-dark);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================
+   HOST CUSTOMIZER MODAL
+   ========================================== */
+.modal-backdrop-layer {
+  position: fixed;
+  inset: 0;
+  background: rgba(45, 55, 46, 0.6);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  backdrop-filter: blur(6px);
+}
+.customizer-modal-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  max-width: 760px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--gold-light);
+}
+.customizer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.5rem 1.75rem;
+  background: var(--sage-light);
+  border-bottom: 1px solid var(--sage-border);
+}
+.header-title-group {
+  display: flex;
+  gap: 0.85rem;
+}
+.header-icon-badge {
+  font-size: 1.75rem;
+}
+.customizer-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  color: var(--sage-dark);
+  font-weight: 700;
+}
+.customizer-subtitle {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+  line-height: 1.4;
+}
+.modal-close-icon {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+.modal-close-icon:hover { color: var(--sage-dark); background: rgba(0,0,0,0.05); }
+
+.customizer-body {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+.generator-field-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--sage-dark);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.45rem;
+}
+.generator-text-input {
+  width: 100%;
+  border: 1.5px solid var(--sage-border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  background: var(--linen);
+  color: var(--text);
+}
+.generator-text-input:focus {
+  outline: none;
+  border-color: var(--sage);
+}
+
+.preset-buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 0.5rem;
+}
+.preset-pill-button {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 0.55rem 0.85rem;
+  border-radius: 8px;
+  border: 1.5px solid var(--sage-border);
+  color: var(--sage-dark);
+  background: var(--linen);
+  text-align: left;
+  transition: all 0.2s;
+}
+.preset-pill-button.active, .preset-pill-button:hover {
+  background: var(--sage);
+  color: white;
+  border-color: var(--sage);
+}
+
+.ceremony-select-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.6rem;
+}
+.ceremony-select-box {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: 8px;
+  border: 1.5px solid var(--sage-border);
+  background: var(--linen);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.ceremony-select-box.checked {
+  background: var(--sage-light);
+  border-color: var(--sage);
+}
+.ceremony-select-box input { display: none; }
+.ceremony-select-content {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.select-emoji { font-size: 1.3rem; }
+.select-name {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.82rem;
+  color: var(--sage-dark);
+  display: block;
+}
+.select-date {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.generator-output-box {
+  background: var(--cream);
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--gold-light);
+}
+.link-display-row {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 0.85rem;
+}
+.link-input-display {
+  flex: 1;
+  background: var(--white);
+  border: 1.5px solid var(--sage-border);
+  border-radius: 6px;
+  padding: 0.5rem 0.8rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.generator-actions-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.btn-whatsapp-share {
+  background: #25D366;
+  color: white !important;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.65rem 1rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, background 0.2s;
+}
+.btn-whatsapp-share:hover {
+  background: #1EBE5D;
+  transform: translateY(-1px);
+}
+.btn-preview-link, .btn-copy-full-text {
+  background: var(--white);
+  color: var(--sage-dark);
+  border: 1.5px solid var(--sage-mid);
+  padding: 0.55rem 1rem;
+  border-radius: 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.2s;
+}
+.btn-preview-link:hover, .btn-copy-full-text:hover {
+  background: var(--sage-light);
+}
+
+/* ==========================================
+   GENERATOR TABS & BULK STYLES
+   ========================================== */
+.generator-tabs-nav {
+  display: flex;
+  background: var(--linen);
+  border-bottom: 1.5px solid var(--sage-border);
+  padding: 0.5rem 1rem 0;
+  gap: 0.5rem;
+  overflow-x: auto;
+}
+.gen-tab-btn {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.65rem 1.1rem;
+  border-radius: 8px 8px 0 0;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid transparent;
+  border-bottom: none;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.gen-tab-btn:hover {
+  color: var(--sage-dark);
+  background: rgba(107, 127, 103, 0.08);
+}
+.gen-tab-btn.active {
+  color: var(--sage-dark);
+  background: var(--white);
+  border-color: var(--sage-border);
+  border-bottom: 2px solid var(--white);
+  margin-bottom: -1.5px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.bulk-instruction-banner {
+  background: var(--sage-light);
+  border-left: 3px solid var(--sage);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  font-size: 0.82rem;
+  color: var(--sage-dark);
+  line-height: 1.45;
+}
+.bulk-instruction-banner strong {
+  display: block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  margin-bottom: 0.2rem;
+}
+
+.bulk-textarea {
+  width: 100%;
+  border: 1.5px solid var(--sage-border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.88rem;
+  background: var(--linen);
+  color: var(--text);
+  line-height: 1.5;
+  resize: vertical;
+}
+.bulk-textarea:focus {
+  outline: none;
+  border-color: var(--sage);
+  background: var(--white);
+}
+
+.bulk-results-card {
+  background: var(--linen);
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--sage-border);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.bulk-results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(107, 127, 103, 0.15);
+}
+.bulk-guest-table-wrapper {
+  max-height: 280px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding-right: 0.25rem;
+}
+.bulk-guest-row {
+  background: var(--white);
+  border: 1px solid rgba(107, 127, 103, 0.15);
+  border-radius: 6px;
+  padding: 0.6rem 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.bulk-guest-info {
+  flex: 1;
+  min-width: 180px;
+}
+.bulk-guest-name {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  color: var(--sage-dark);
+  display: block;
+}
+.bulk-guest-url {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  word-break: break-all;
+  display: block;
+}
+.bulk-row-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.bulk-btn-whatsapp {
+  background: #25D366;
+  color: white !important;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.35rem 0.65rem;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.bulk-btn-whatsapp:hover { transform: scale(1.04); }
+.bulk-btn-copy, .bulk-btn-view {
+  background: var(--sage-light);
+  color: var(--sage-dark);
+  border: 1px solid var(--sage-mid);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.35rem 0.6rem;
+  border-radius: 14px;
+  cursor: pointer;
+}
+.bulk-btn-copy:hover, .bulk-btn-view:hover {
+  background: var(--sage);
+  color: white;
+}
+
+/* Broadcast & Group Styles */
+.broadcast-guide-box {
+  background: #E8F5E9;
+  border: 1px solid #A5D6A7;
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  color: #1B5E20;
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+.broadcast-steps-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+.b-step {
+  background: var(--linen);
+  border: 1px solid var(--sage-border);
+  border-radius: 8px;
+  padding: 0.85rem;
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+.b-step strong {
+  display: block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--sage-dark);
+  margin-bottom: 0.2rem;
+}
+.b-step-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--sage);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.group-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.85rem;
+}
+.group-preset-card {
+  background: var(--white);
+  border: 1.5px solid var(--sage-border);
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  box-shadow: var(--shadow-sm);
+}
+.group-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.group-card-header strong {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  color: var(--sage-dark);
+}
+.group-badge {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.68rem;
+  background: var(--sage-light);
+  color: var(--sage-dark);
+  padding: 0.2rem 0.55rem;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+.site-footer {
+  background: var(--sage-dark);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 4.5rem 1.5rem 2.5rem;
+}
+.footer-inner {
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
+}
+.footer-ganesha-small {
+  font-size: 2.5rem;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+.footer-names {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.8rem;
+  color: var(--gold-light);
+  margin-bottom: 0.4rem;
+}
+.footer-date {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.12em;
+  opacity: 0.9;
+}
+.footer-hashtag {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--gold);
+  margin: 0.6rem 0 1.25rem;
+  font-style: italic;
+}
+.footer-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 1.25rem 0;
+}
+.footer-note {
+  font-size: 0.95rem;
+  opacity: 0.8;
+  margin-bottom: 0.35rem;
+}
+.footer-copy {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  opacity: 0.5;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+@media (max-width: 768px) {
+  .site-nav { padding: 0.75rem 1.25rem; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+
+  .hero-floral-left, .hero-floral-right { display: none; }
+  .hero-arch-card { padding: 2.8rem 1.5rem 2rem; border-radius: 200px 200px 20px 20px; }
+
+  .story-step {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+  .story-step-right { direction: ltr; }
+
+  .countdown-row { gap: 0.85rem; }
+  .countdown-num { font-size: 2.3rem; min-width: 72px; padding: 0.45rem 0.8rem; }
+
+  .section-calendar, .section-white, .section-sage-light {
+    padding: 4rem 1rem;
+  }
+  .calendar-cards-container {
+    grid-template-columns: 1fr;
+  }
+  .envelope-body {
+    width: 92vw;
+    height: 60vw;
+  }
+}
