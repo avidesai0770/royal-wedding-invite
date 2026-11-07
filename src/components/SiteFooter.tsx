@@ -1,7 +1,12 @@
 import React from 'react';
 import { COUPLE } from '../data/weddingData';
 
-const SiteFooter: React.FC = () => (
+interface Props {
+  isHost?: boolean;
+  onOpenHost?: () => void;
+}
+
+const SiteFooter: React.FC<Props> = ({ isHost, onOpenHost }) => (
   <footer className="site-footer">
     <div className="footer-inner">
       <div className="footer-ganesha-small">ॐ</div>
@@ -13,6 +18,16 @@ const SiteFooter: React.FC = () => (
         Made with <span style={{ color: '#C5A059' }}>♥</span> for our most cherished guests
       </p>
       <p className="footer-copy">© 2026 {COUPLE.groomFirst} &amp; {COUPLE.brideFirst}. All love reserved.</p>
+      {isHost && onOpenHost && (
+        <div style={{ marginTop: '0.8rem' }}>
+          <button
+            onClick={onOpenHost}
+            className="footer-host-portal-btn"
+          >
+            🔒 Family Host Portal (Create Invitations)
+          </button>
+        </div>
+      )}
     </div>
   </footer>
 );

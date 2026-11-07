@@ -9,7 +9,7 @@ import MusicPlayer from './components/MusicPlayer';
 import SiteNav from './components/SiteNav';
 import SiteFooter from './components/SiteFooter';
 import HostGeneratorModal from './components/HostGeneratorModal';
-import { parseGuestFromUrl } from './utils/urlHelper';
+import { parseGuestFromUrl, isHostMode } from './utils/urlHelper';
 import type { GuestConfig } from './types/wedding';
 
 const App: React.FC = () => {
@@ -17,12 +17,14 @@ const App: React.FC = () => {
   const [removeOverlay, setRemoveOverlay] = useState(false);
   const [showGenerator, setShowGenerator] = useState(false);
   const [guest, setGuest] = useState<GuestConfig | null>(() => parseGuestFromUrl());
+  const [isHost, setIsHost] = useState<boolean>(() => isHostMode());
   const petalsRef = useRef<HTMLDivElement>(null);
 
   // Re-read query params if user switches links
   useEffect(() => {
     const handlePopState = () => {
       setGuest(parseGuestFromUrl());
+      setIsHost(isHostMode());
     };
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
@@ -63,7 +65,7 @@ const App: React.FC = () => {
     <>
       {/* 1. Main Wedding Website (ALWAYS rendered behind overlay — NO white flash!) */}
       <div className="site-wrapper site-visible">
-        <SiteNav onOpenGenerator={() => setShowGenerator(true)} />
+        <SiteNav onOpenGenerator={() => setShowGenerator(true)} isHost={isHost} />
         <MusicPlayer autoStart={false} />
 
         {/* Floating petals container */}
@@ -81,7 +83,7 @@ const App: React.FC = () => {
 
         </main>
 
-        <SiteFooter />
+        <SiteFooter isHost={isHost} onOpenHost={() => setShowGenerator(true)} />
       </div>
 
       {/* 2. Interactive Wax Seal Envelope Entrance Overlay */}

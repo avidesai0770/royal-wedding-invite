@@ -28,7 +28,7 @@ export const WEDDING_EVENTS: WeddingEvent[] = [
     color: '#D4A017',
     timeline: [
 { time: '04:00 PM', title: 'Geet Sangeet', description: 'Traditional lagna geet sung by the ladies of the family, filling the evening with blessings, laughter, and folk melodies' },
-{ time: '07:00 PM', title: 'Sangeet Night', description: 'An evening of dance performances by family and friends, followed by a DJ and a dance floor open to everyone' },
+{ time: '07:00 PM', title: 'Rass garba with Dinner', description: 'An evening of dance performances by family and friends, followed by a DJ and a dance floor open to everyone' },
     ],
   },
   {
@@ -75,7 +75,7 @@ export const WEDDING_EVENTS: WeddingEvent[] = [
   {
     id: 'wedding',
     slug: 'wedding',
-    title: 'Wedding & Royal Baraat',
+    title: 'Wedding & Baraat',
     subtitle: 'The Grand Pheras at SP Dome',
     date: '14 December 2026',
     dayOfWeek: 'Monday',
@@ -83,14 +83,14 @@ export const WEDDING_EVENTS: WeddingEvent[] = [
     venue: 'SP Party Plot & Dom',
     address: 'Vyara, Gujarat 394650',
     mapUrl: 'https://share.google/2wluDo1ZGjO02XinW',
-    description: 'The pinnacle of our union in the magical water palace. The regal Baraat arrives over illuminated royal boats, followed by the sacred Vedic Saat Pheras under the stars.',
-    dressCode: 'Royal Indian Haute Couture — Bandhgalas, Achkans & Embroidered Lehengas',
-    emoji: '👑',
-    color: '#8A5A44',
-    timeline: [
-      { time: '02:00 PM', title: 'Grand Royal Baraat', description: 'Decorated royal boats, vintage nagadas & dancing Baraatis' },
-      { time: '06:00 PM', title: 'Jaimala', description: 'Exchange of floral garlands' },
-    ],
+   description: 'The pinnacle of our union at SP Dome, Vyara. The regal Baraat makes its grand arrival, followed by the sacred Vedic Saat Pheras in a celebration of love and tradition.',
+dressCode: 'Royal Indian Haute Couture — Bandhgalas, Achkans & Embroidered Lehengas',
+emoji: '👑',
+color: '#8A5A44',
+timeline: [
+  { time: '02:00 PM', title: 'Baraat Departure', description: 'The Baraat sets off from our residence at Ravi Shankar Sankul, Bhatar Road, with dhol, nagadas & dancing Baraatis' },
+  { time: '06:00 PM', title: 'Jaimala', description: 'Exchange of floral garlands' },
+],
   },
 ];
 

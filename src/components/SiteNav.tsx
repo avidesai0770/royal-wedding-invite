@@ -8,9 +8,10 @@ const navItems = [
 
 interface Props {
   onOpenGenerator: () => void;
+  isHost?: boolean;
 }
 
-const SiteNav: React.FC<Props> = ({ onOpenGenerator }) => {
+const SiteNav: React.FC<Props> = ({ onOpenGenerator, isHost = false }) => {
   const [open, setOpen] = useState(false);
 
   const scrollTo = (href: string) => {
@@ -31,13 +32,15 @@ const SiteNav: React.FC<Props> = ({ onOpenGenerator }) => {
             {item.label}
           </a>
         ))}
-        <button
-          className="nav-generator-pill-btn"
-          onClick={onOpenGenerator}
-          title="Create custom invitation links for guests"
-        >
-          <span>💌 Create Guest Links</span>
-        </button>
+        {isHost && (
+          <button
+            className="nav-generator-pill-btn"
+            onClick={onOpenGenerator}
+            title="Create custom invitation links for guests"
+          >
+            <span>💌 Host Tool (Guest Links)</span>
+          </button>
+        )}
       </div>
 
       {/* Mobile hamburger */}
@@ -56,12 +59,14 @@ const SiteNav: React.FC<Props> = ({ onOpenGenerator }) => {
               {item.label}
             </a>
           ))}
-          <a
-            className="nav-mobile-link highlight-link"
-            onClick={() => { setOpen(false); onOpenGenerator(); }}
-          >
-            💌 Create Guest Links (Host Tool)
-          </a>
+          {isHost && (
+            <a
+              className="nav-mobile-link highlight-link"
+              onClick={() => { setOpen(false); onOpenGenerator(); }}
+            >
+              💌 Host Tool (Create Guest Links)
+            </a>
+          )}
         </div>
       )}
     </nav>

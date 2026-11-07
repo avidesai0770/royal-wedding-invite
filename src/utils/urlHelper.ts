@@ -41,6 +41,25 @@ export function parseGuestFromUrl(): GuestConfig | null {
   };
 }
 
+export function isHostMode(): boolean {
+  if (typeof window === 'undefined') return false;
+  const params = new URLSearchParams(window.location.search);
+  return (
+    params.get('host') === 'true' ||
+    params.get('host') === '1' ||
+    params.get('admin') === 'true' ||
+    params.get('admin') === '1' ||
+    params.get('family') === 'true'
+  );
+}
+
+export function buildHostAccessUrl(): string {
+  if (typeof window === 'undefined') return '';
+  const origin = window.location.origin;
+  const pathname = window.location.pathname;
+  return `${origin}${pathname}?host=true`;
+}
+
 export function buildGuestUrl(name: string, events: string[]): string {
   const origin = window.location.origin;
   const pathname = window.location.pathname;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { GUEST_PRESETS, WEDDING_EVENTS, COUPLE } from '../data/weddingData';
-import { buildGuestUrl } from '../utils/urlHelper';
+import { buildGuestUrl, buildHostAccessUrl } from '../utils/urlHelper';
 
 interface Props {
   onClose: () => void;
@@ -33,6 +33,8 @@ const HostGeneratorModal: React.FC<Props> = ({ onClose }) => {
   const [bulkList, setBulkList] = useState<BulkGuestItem[]>([]);
   const [copiedAll, setCopiedAll] = useState(false);
   const [copiedSingleIndex, setCopiedSingleIndex] = useState<number | null>(null);
+  const [copiedHostLink, setCopiedHostLink] = useState(false);
+  const hostAccessUrl = buildHostAccessUrl();
 
   // Single guest link & message calculations
   const singleGuestLink = buildGuestUrl(guestName || 'Guest', selectedEvents);
@@ -157,7 +159,7 @@ const HostGeneratorModal: React.FC<Props> = ({ onClose }) => {
           <div className="header-title-group">
             <span className="header-icon-badge">💌</span>
             <div>
-              <h3 className="customizer-title">Wedding Invitation Manager</h3>
+              <h3 className="customizer-title">Wedding Invitation Manager (Host Mode)</h3>
               <p className="customizer-subtitle">
                 Create and send personalized invitations individually or to multiple guests at once
               </p>
@@ -166,6 +168,30 @@ const HostGeneratorModal: React.FC<Props> = ({ onClose }) => {
           <button className="modal-close-icon" onClick={onClose} aria-label="Close">
             ✕
           </button>
+        </div>
+
+        {/* Secret Family Access Link Banner */}
+        <div className="host-family-share-banner">
+          <div className="host-family-text">
+            <strong>🔗 Family Member Access Link</strong>
+            <p>
+              Share this secret link with family members so they can generate and send out invitations too. 
+              <strong> Regular guests who receive the invite will NOT see this generator tool.</strong>
+            </p>
+          </div>
+          <div className="host-family-action">
+            <button
+              type="button"
+              className="btn-sage btn-sm"
+              onClick={async () => {
+                await navigator.clipboard.writeText(hostAccessUrl);
+                setCopiedHostLink(true);
+                setTimeout(() => setCopiedHostLink(false), 2200);
+              }}
+            >
+              {copiedHostLink ? '✓ Copied Family Link!' : '📋 Copy Family Host Link'}
+            </button>
+          </div>
         </div>
 
         {/* Tab Switcher */}

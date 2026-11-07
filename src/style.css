@@ -1945,31 +1945,182 @@ img { max-width: 100%; }
 }
 
 /* ==========================================
-   RESPONSIVE DESIGN
+   FAMILY HOST BANNER & FOOTER PORTAL
+   ========================================== */
+.host-family-share-banner {
+  background: #FEF9E7;
+  border-bottom: 1.5px solid #F9E79F;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.host-family-text strong {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.86rem;
+  color: #7D6608;
+  display: block;
+}
+.host-family-text p {
+  font-size: 0.82rem;
+  color: #9A7D0A;
+  margin-top: 0.15rem;
+  line-height: 1.4;
+}
+.host-family-action .btn-sage {
+  white-space: nowrap;
+  font-size: 0.8rem;
+  padding: 0.55rem 1.1rem;
+}
+.footer-host-portal-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--gold-light);
+  border: 1px dashed var(--gold);
+  border-radius: 20px;
+  padding: 0.4rem 1rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.footer-host-portal-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN (OPTIMIZED FOR MOBILE)
    ========================================== */
 @media (max-width: 768px) {
-  .site-nav { padding: 0.75rem 1.25rem; }
+  html { font-size: 17px; }
+
+  .site-nav { padding: 0.85rem 1.25rem; }
+  .nav-brand { font-size: 1.85rem; }
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
+  .nav-mobile-link {
+    font-size: 1.05rem;
+    padding: 1.1rem 1.8rem;
+  }
 
   .hero-floral-left, .hero-floral-right { display: none; }
-  .hero-arch-card { padding: 2.8rem 1.5rem 2rem; border-radius: 200px 200px 20px 20px; }
-
-  .story-step {
-    grid-template-columns: 1fr;
-    gap: 1.75rem;
+  .hero-arch-card {
+    padding: 3rem 1.5rem 2.2rem;
+    border-radius: 200px 200px 20px 20px;
   }
-  .story-step-right { direction: ltr; }
+  .hero-label { font-size: 1.05rem; }
+  .hero-groom, .hero-bride {
+    font-size: clamp(3.2rem, 11vw, 4.4rem);
+    line-height: 1.1;
+  }
+  .hero-ampersand { font-size: 2.2rem; margin: -0.1rem 0; }
+  .hero-date { font-size: 1.35rem; font-weight: 700; }
+  .hero-venue {
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+    margin-top: 0.45rem;
+  }
+  .guest-badge-greeting { font-size: 1rem; line-height: 1.5; }
+  .hero-guest-tag {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.8rem;
+  }
+  .hero-cta-row .btn-sage, .hero-cta-row .btn-outline {
+    font-size: 0.88rem;
+    padding: 0.8rem 1.6rem;
+    width: 100%;
+  }
 
-  .countdown-row { gap: 0.85rem; }
-  .countdown-num { font-size: 2.3rem; min-width: 72px; padding: 0.45rem 0.8rem; }
+  /* Envelope Entrance Mobile Typography */
+  .envelope-guest-banner {
+    font-size: 0.95rem;
+    padding: 0.55rem 1.2rem;
+  }
+  .env-letter-label { font-size: 0.78rem; }
+  .env-letter-names { font-size: clamp(2rem, 6.5vw, 2.6rem); }
+  .env-letter-sub { font-size: 0.95rem; }
+  .env-letter-tag {
+    font-size: 0.76rem;
+    padding: 0.25rem 0.6rem;
+  }
+  .env-letter-guest { font-size: 0.88rem; }
+  .env-prompt { font-size: 0.92rem; }
+  .env-music-indicator { font-size: 0.84rem; }
+  .env-save-date { font-size: 1.18rem; }
+  .env-city { font-size: 2.3rem; }
 
+  /* Countdown Mobile Typography */
+  .section-label { font-size: 0.86rem; letter-spacing: 0.18em; }
+  .section-title { font-size: 2.2rem; }
+  .countdown-row { gap: 0.75rem; }
+  .countdown-num {
+    font-size: 2.5rem;
+    min-width: 74px;
+    padding: 0.5rem 0.8rem;
+  }
+  .countdown-label { font-size: 0.82rem; }
+  .countdown-sub { font-size: 1.2rem; }
+
+  /* Calendar / Ceremonies Mobile Typography */
   .section-calendar, .section-white, .section-sage-light {
-    padding: 4rem 1rem;
+    padding: 4rem 1.1rem;
   }
-  .calendar-cards-container {
+  .calendar-shubh-badge { font-size: 1.1rem; }
+  .calendar-eyebrow { font-size: 0.88rem; }
+  .calendar-headline { font-size: 2.4rem; }
+  .guest-notice-pill { font-size: 0.92rem; }
+  .guest-notice-sub { font-size: 0.9rem; line-height: 1.5; }
+  .calendar-cards-container { grid-template-columns: 1fr; gap: 2rem; }
+  .royal-card-inner { padding: 1.5rem 1.25rem; }
+  .ceremony-index-pill { font-size: 0.78rem; }
+  .medallion-day { font-size: 0.82rem; }
+  .medallion-date-num { font-size: 1.75rem; }
+  .medallion-month { font-size: 1.05rem; }
+  .medallion-time-badge { font-size: 0.88rem; }
+  .ceremony-main-title { font-size: 1.6rem; }
+  .ceremony-subtitle { font-size: 1.1rem; }
+  .venue-name-highlight { font-size: 1.05rem; font-weight: 700; }
+  .venue-address-text { font-size: 0.95rem; line-height: 1.5; }
+  .venue-map-hint { font-size: 0.85rem; font-weight: 700; }
+  .ceremony-description-paragraph {
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
+  .attire-label, .attire-text { font-size: 0.9rem; }
+  .ceremony-timeline-toggle {
+    font-size: 0.88rem;
+    padding: 0.7rem 1rem;
+  }
+  .step-time-badge { font-size: 0.78rem; }
+  .step-headline { font-size: 1.05rem; }
+  .step-subtext { font-size: 0.92rem; line-height: 1.5; }
+  .ceremony-actions-row {
     grid-template-columns: 1fr;
+    gap: 0.75rem;
   }
+  .btn-ceremony-map, .btn-ceremony-calendar {
+    font-size: 0.92rem;
+    padding: 0.8rem 1rem;
+  }
+  .ceremony-guest-status-strip {
+    font-size: 0.84rem;
+    padding: 0.45rem 0.65rem;
+  }
+
+  /* Music Player Mobile Position & Size */
+  .floating-music-widget {
+    bottom: 1.25rem;
+    right: 1.25rem;
+  }
+  .pill-song-title { font-size: 0.86rem; }
+  .pill-artist-sub { font-size: 0.75rem; }
+  .music-control-button {
+    width: 54px;
+    height: 54px;
+  }
+
   .envelope-body {
     width: 92vw;
     height: 60vw;
