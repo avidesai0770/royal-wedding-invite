@@ -9,18 +9,15 @@ interface Props {
 
 const TheDetails: React.FC<Props> = ({ guest }) => {
   const [activeTimelineId, setActiveTimelineId] = useState<string | null>(null);
-  const [showAllEvents, setShowAllEvents] = useState(false);
 
-  // If guest is defined and has specified events, filter unless user clicks show all
-  const invitedEvents = guest && guest.events.length > 0
+  // If guest is defined and has specified events, strictly display those events only
+  const isPersonalized = Boolean(guest && guest.events.length > 0 && guest.events.length < WEDDING_EVENTS.length);
+
+  const displayedEvents = isPersonalized && guest
     ? WEDDING_EVENTS.filter(e => guest.events.includes(e.slug))
     : WEDDING_EVENTS;
 
-  const displayedEvents = (showAllEvents || invitedEvents.length === 0)
-    ? WEDDING_EVENTS
-    : invitedEvents;
-
-  const isPersonalized = guest && guest.events.length > 0 && guest.events.length < WEDDING_EVENTS.length;
+  const invitedEvents = displayedEvents;
 
   // Calendar .ics generator for guests to add to their phone calendar
   const handleAddToCalendar = (event: WeddingEvent) => {
@@ -69,26 +66,9 @@ const TheDetails: React.FC<Props> = ({ guest }) => {
               <div className="guest-notice-pill">
                 <span>🌸 Specially Curated for <strong>{guest.name}</strong></span>
               </div>
-              {isPersonalized && !showAllEvents && (
+              {isPersonalized && (
                 <p className="guest-notice-sub">
-                  Displaying your <strong>{invitedEvents.length}</strong> designated celebrations.
-                  <button
-                    className="view-all-toggle-btn"
-                    onClick={() => setShowAllEvents(true)}
-                  >
-                    View Complete Wedding Program →
-                  </button>
-                </p>
-              )}
-              {isPersonalized && showAllEvents && (
-                <p className="guest-notice-sub">
-                  Showing all celebrations.
-                  <button
-                    className="view-all-toggle-btn"
-                    onClick={() => setShowAllEvents(false)}
-                  >
-                    Show Only My Invited Events ({invitedEvents.length}) ←
-                  </button>
+                  Displaying your <strong>{displayedEvents.length}</strong> designated {displayedEvents.length === 1 ? 'celebration' : 'celebrations'}.
                 </p>
               )}
             </div>

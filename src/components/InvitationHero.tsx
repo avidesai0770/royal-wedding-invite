@@ -1,6 +1,7 @@
 import React from 'react';
 import type { GuestConfig } from '../types/wedding';
 import { COUPLE, WEDDING_EVENTS } from '../data/weddingData';
+import { formatEventsDateAndLocation } from '../utils/urlHelper';
 
 interface Props {
   guest: GuestConfig | null;
@@ -10,6 +11,8 @@ const InvitationHero: React.FC<Props> = ({ guest }) => {
   const invitedEvents = guest && guest.events.length > 0
     ? WEDDING_EVENTS.filter(e => guest.events.includes(e.slug))
     : WEDDING_EVENTS;
+
+  const { dateText } = formatEventsDateAndLocation(invitedEvents);
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -35,7 +38,7 @@ const InvitationHero: React.FC<Props> = ({ guest }) => {
           <span className="hero-divider-line" />
         </div>
 
-        <p className="hero-date">12 – 14 December 2026</p>    
+        <p className="hero-date">{dateText}</p>    
         {/* Personalized Guest Badge */}
         {guest?.name && (
           <div className="hero-guest-badge">

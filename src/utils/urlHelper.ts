@@ -1,4 +1,4 @@
-import type { GuestConfig } from '../types/wedding';
+import type { GuestConfig, WeddingEvent } from '../types/wedding';
 
 // Normalize slug aliases (e.g. sangeet -> garba, barat -> wedding)
 export function normalizeEventSlug(slug: string): string {
@@ -82,4 +82,43 @@ export function buildGuestUrl(name: string, events: string[]): string {
   }
 
   return `${origin}${pathname}?${params.toString()}`;
+}
+
+export function formatEventsDateAndLocation(events: WeddingEvent[]): { dateText: string; locationText: string } {
+  if (!events || events.length === 0) {
+    return { dateText: '12 – 14 December 2026', locationText: 'Surat & Vyara' };
+  }
+
+  // Collect unique dates preserving order
+  const uniqueDates = Array.from(new Set(events.map(e => e.date)));
+
+  let dateText = '';
+  if (uniqueDates.length === 1) {
+    // Single event date: e.g. "13 December 2026"
+    dateText = uniqueDates[0];
+  } else if (uniqueDates.length === 2) {
+    const day1 = uniqueDates[0].split(' ')[0];
+    const day2 = uniqueDates[1].split(' ')[0];
+    dateText = `${day1} & ${day2} December 2026`;
+  } else if (uniqueDates.length >= 3) {
+    const dayFirst = uniqueDates[0].split(' ')[0];
+    const dayLast = uniqueDates[uniqueDates.length - 1].split(' ')[0];
+    dateText = `${dayFirst} – ${dayLast} December 2026`;
+  } else {
+    dateText = '12 – 14 December 2026';
+  }
+
+  const hasVyara = events.some(e => (e.venue && e.venue.includes('SP')) || (e.address && e.address.toLowerCase().includes('vyara')));
+  const hasSurat = events.some(e => e.address && e.address.toLowerCase().includes('surat'));
+
+  let locationText = 'Surat';
+  if (hasSurat && hasVyara) {
+    locationText = 'Surat & Vyara';
+  } else if (hasVyara) {
+    locationText = 'Vyara';
+  } else {
+    locationText = 'Surat';
+  }
+
+  return { dateText, locationText };
 }

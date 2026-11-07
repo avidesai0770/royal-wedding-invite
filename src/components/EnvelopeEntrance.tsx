@@ -3,6 +3,7 @@ import { weddingAudio } from '../utils/audioSynth';
 import { WeddingMusicManager } from '../utils/musicManager';
 import { WEDDING_EVENTS } from '../data/weddingData';
 import type { GuestConfig } from '../types/wedding';
+import { formatEventsDateAndLocation } from '../utils/urlHelper';
 
 interface Props {
   onOpen: () => void;
@@ -16,6 +17,8 @@ const EnvelopeEntrance: React.FC<Props> = ({ onOpen, guest }) => {
   const invitedEvents = guest && guest.events.length > 0
     ? WEDDING_EVENTS.filter(e => guest.events.includes(e.slug))
     : WEDDING_EVENTS;
+
+  const { dateText, locationText } = formatEventsDateAndLocation(invitedEvents);
 
   const handleClick = () => {
     if (phase !== 'idle') return;
@@ -101,7 +104,7 @@ const EnvelopeEntrance: React.FC<Props> = ({ onOpen, guest }) => {
 
               <p className="env-letter-label">You are cordially invited to</p>
               <p className="env-letter-names">Avi & Nupur</p>
-              <p className="env-letter-sub">12 – 14 December 2026 · Surat</p>
+              <p className="env-letter-sub">{dateText} · {locationText}</p>
 
               {/* Invited Ceremonies Mini-List */}
               <div className="env-letter-events-row">
