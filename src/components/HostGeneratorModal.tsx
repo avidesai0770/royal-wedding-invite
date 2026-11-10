@@ -21,7 +21,7 @@ const HostGeneratorModal: React.FC<Props> = ({ onClose }) => {
 
   // Single Guest State
   const [guestName, setGuestName] = useState('');
-  const [selectedEvents, setSelectedEvents] = useState<string[]>(['garba', 'santek', 'haldi', 'wedding']);
+  const [selectedEvents, setSelectedEvents] = useState<string[]>(['garba', 'haldi', 'santek', 'wedding']);
   const [copiedLink, setCopiedLink] = useState(false);
   const [copiedMsg, setCopiedMsg] = useState(false);
 
@@ -29,7 +29,7 @@ const HostGeneratorModal: React.FC<Props> = ({ onClose }) => {
   const [bulkInput, setBulkInput] = useState(
     'Ramesh Uncle & Family\nSuresh Bhai & Parivaar\nPriya & Rahul\nAmit Patel\nMehta Family'
   );
-  const [bulkEvents, setBulkEvents] = useState<string[]>(['garba', 'santek', 'haldi', 'wedding']);
+  const [bulkEvents, setBulkEvents] = useState<string[]>(['garba', 'haldi', 'santek', 'wedding']);
   const [bulkList, setBulkList] = useState<BulkGuestItem[]>([]);
   const [copiedAll, setCopiedAll] = useState(false);
   const [copiedSingleIndex, setCopiedSingleIndex] = useState<number | null>(null);
@@ -530,7 +530,7 @@ const HostGeneratorModal: React.FC<Props> = ({ onClose }) => {
                 {
                   title: '🌟 All Family & Relatives',
                   subtitle: 'Invited to All 4 Events (Full Vivah)',
-                  events: ['garba', 'santek', 'haldi', 'wedding'],
+                  events: ['garba', 'haldi', 'santek', 'wedding'],
                   groupName: 'Our Beloved Family',
                 },
                 {
@@ -546,9 +546,9 @@ const HostGeneratorModal: React.FC<Props> = ({ onClose }) => {
                   groupName: 'Special Guests',
                 },
                 {
-                  title: '🪷 Pooja & Haldi Group',
-                  subtitle: 'Invited to Santek & Haldi Only',
-                  events: ['santek', 'haldi'],
+                  title: '💛 Haldi & Pooja Group',
+                  subtitle: 'Invited to Haldi & Santek Only',
+                  events: ['haldi', 'santek'],
                   groupName: 'Respected Elders & Family',
                 },
               ].map((grp, i) => {

@@ -10,7 +10,7 @@ export function normalizeEventSlug(slug: string): string {
   return s;
 }
 
-export const ALL_EVENT_SLUGS = ['garba', 'santek', 'haldi', 'wedding'];
+export const ALL_EVENT_SLUGS = ['garba', 'haldi', 'santek', 'wedding'];
 
 export function parseGuestFromUrl(): GuestConfig | null {
   const params = new URLSearchParams(window.location.search);

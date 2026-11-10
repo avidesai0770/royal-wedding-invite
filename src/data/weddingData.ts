@@ -32,6 +32,26 @@ export const WEDDING_EVENTS: WeddingEvent[] = [
     ],
   },
   {
+    id: 'haldi',
+    slug: 'haldi',
+    title: 'Haldi Ceremony',
+    subtitle: 'The Radiant Turmeric & Marigold Fiesta',
+    date: '13 December 2026',
+    dayOfWeek: 'Sunday',
+    time: '10:00 AM Onwards',
+    venue: 'Dayalji Ashram',
+    address: 'Vijay Nagar, Majura Gate, Surat, Gujarat 395001',
+    mapUrl: 'https://share.google/wWGUDToUgEJKcPWzd',
+    description: 'Sunshine, laughter, and marigold showers! An auspicious bath of fragrant organic turmeric, sandalwood, and rose petals celebrating eternal radiance and joy.',
+    dressCode: 'Shades of Yellow, Mustard & Floral Summer Kurtas',
+    emoji: '💛',
+    color: '#E8A735',
+    timeline: [
+     { time: '10:00 AM', title: 'Ubtan & Haldi Ritual', description: 'Applying sacred fragrant turmeric paste' },
+{ time: '12:00 PM', title: 'Haldi Lunch', description: 'Feast together with loved ones after the ceremony' },
+    ],
+  },
+  {
     id: 'santek',
     slug: 'santek',
     title: 'Santek Pooja',
@@ -50,26 +70,6 @@ export const WEDDING_EVENTS: WeddingEvent[] = [
     
       { time: '02:00 PM', title: 'Santek', description: 'Grah Satak (often performed alongside Grah Shanti) is a traditional prayer ceremony in Gujarati weddings that invites Lord Ganesha to remove obstacles and bless the couple with happiness, peace, and prosperity' },
       { time: '06:30 PM', title: 'start of meal', description: '' },
-    ],
-  },
-  {
-    id: 'haldi',
-    slug: 'haldi',
-    title: 'Haldi Ceremony',
-    subtitle: 'The Radiant Turmeric & Marigold Fiesta',
-    date: '13 December 2026',
-    dayOfWeek: 'Sunday',
-    time: '10:00 AM Onwards',
-    venue: 'Dayalji Ashram',
-    address: 'Vijay Nagar, Majura Gate, Surat, Gujarat 395001',
-    mapUrl: 'https://share.google/wWGUDToUgEJKcPWzd',
-    description: 'Sunshine, laughter, and marigold showers! An auspicious bath of fragrant organic turmeric, sandalwood, and rose petals celebrating eternal radiance and joy.',
-    dressCode: 'Shades of Yellow, Mustard & Floral Summer Kurtas',
-    emoji: '💛',
-    color: '#E8A735',
-    timeline: [
-     { time: '10:00 AM', title: 'Ubtan & Haldi Ritual', description: 'Applying sacred fragrant turmeric paste' },
-{ time: '12:00 PM', title: 'Haldi Lunch', description: 'Feast together with loved ones after the ceremony' },
     ],
   },
   {
@@ -143,11 +143,12 @@ export const INITIAL_WISHES: Wish[] = [
 ];
 
 export const GUEST_PRESETS: GuestPreset[] = [
-  { label: '🌟 Full Wedding (All 4 Events)', name: '', events: ['garba', 'santek', 'haldi', 'wedding'] },
+  { label: '🌟 Full Wedding (All 4 Events)', name: '', events: ['garba', 'haldi', 'santek', 'wedding'] },
   { label: '💃 Sangeet & Garba Only', name: '', events: ['garba'] },
+  { label: '💛 Haldi Ceremony Only', name: '', events: ['haldi'] },
   { label: '🪷 Santek Pooja Only', name: '', events: ['santek'] },
+  { label: '💛 Haldi + Santek Only', name: '', events: ['haldi', 'santek'] },
   { label: '👑 Baraat & Wedding Only', name: '', events: ['wedding'] },
-  { label: '💛 Santek + Haldi Only', name: '', events: ['santek', 'haldi'] },
   { label: '✨ Sangeet + Baraat Only', name: '', events: ['garba', 'wedding'] },
 ];
 
