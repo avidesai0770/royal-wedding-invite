@@ -704,18 +704,42 @@ img { max-width: 100%; }
   margin-bottom: 0.5rem;
   font-style: italic;
 }
+.hero-couple-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  margin: 0.35rem 0;
+}
+.hero-person {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 .hero-groom, .hero-bride {
   font-family: 'Great Vibes', cursive;
-  font-size: clamp(3rem, 9vw, 4.4rem);
+  font-size: clamp(2.8rem, 8vw, 4.2rem);
   color: var(--sage-dark);
-  line-height: 1.05;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+.hero-parentage {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  color: var(--text-muted);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin-top: 0.15rem;
+  line-height: 1.3;
 }
 .hero-ampersand {
   font-family: 'Great Vibes', cursive;
   font-size: 2.2rem;
   color: var(--gold);
   line-height: 1;
-  margin: -0.3rem 0;
+  margin: 0.25rem 0;
 }
 .hero-divider {
   display: flex;
@@ -2012,10 +2036,15 @@ img { max-width: 100%; }
   }
   .hero-label { font-size: 1.05rem; }
   .hero-groom, .hero-bride {
-    font-size: clamp(3.2rem, 11vw, 4.4rem);
+    font-size: clamp(2.7rem, 9.5vw, 3.8rem);
     line-height: 1.1;
   }
-  .hero-ampersand { font-size: 2.2rem; margin: -0.1rem 0; }
+  .hero-ampersand { font-size: 2rem; margin: 0.15rem 0; }
+  .hero-parentage {
+    font-size: 1.05rem;
+    line-height: 1.35;
+    margin-top: 0.2rem;
+  }
   .hero-date { font-size: 1.35rem; font-weight: 700; }
   .hero-venue {
     font-size: 0.95rem;

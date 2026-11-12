@@ -3,8 +3,10 @@ import type { WeddingEvent, LoveStoryStep, Wish, GuestPreset } from '../types/we
 export const COUPLE = {
   groomFirst: 'Avi',
   groomLast: 'Desai',
+  groomParents: 'Son of Jatin Desai and Kamini Desai',
   brideFirst: 'Nupur',
   brideLast: 'Mahale',
+  brideParents: 'Daughter of Mahendra Mahale and Rashmi Mahale',
   hashtag: '#AviKiNupur',
   city: 'vyara, Gujarat',
   venue: 'Vyara Dome',

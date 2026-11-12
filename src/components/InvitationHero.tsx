@@ -28,9 +28,19 @@ const InvitationHero: React.FC<Props> = ({ guest }) => {
 
         <p className="hero-label">Together with their families</p>
 
-        <h1 className="hero-groom">{COUPLE.groomFirst}</h1>
-        <div className="hero-ampersand">&amp;</div>
-        <h1 className="hero-bride">{COUPLE.brideFirst}</h1>
+        <div className="hero-couple-block">
+          <div className="hero-person">
+            <h1 className="hero-groom">{COUPLE.groomFirst} {COUPLE.groomLast}</h1>
+            <p className="hero-parentage">{COUPLE.groomParents}</p>
+          </div>
+
+          <div className="hero-ampersand">&amp;</div>
+
+          <div className="hero-person">
+            <h1 className="hero-bride">{COUPLE.brideFirst} {COUPLE.brideLast}</h1>
+            <p className="hero-parentage">{COUPLE.brideParents}</p>
+          </div>
+        </div>
 
         <div className="hero-divider">
           <span className="hero-divider-line" />
