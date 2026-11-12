@@ -41,7 +41,7 @@ const CountdownTimer: React.FC = () => {
             </div>
           ))}
         </div>
-        <p className="countdown-sub">Until Avi & Nupur say "I do" ✨</p>
+        <p className="countdown-sub">Until Avi & Nupur tie the knot ✨</p>
       </div>
     </section>
   );
